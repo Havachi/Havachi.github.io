@@ -1,0 +1,37 @@
+@use 'colors';
+@use "sass:map";
+$theme-colors: (
+  "primary": #5d00ed,
+  "primary-dark": #0000b9,
+  "primary-light": #9946ff,
+  "secondary": #69f0ae,
+  "secondary-dark": #2bbd7e,
+  "secondary-light": #9fffe0,
+  "background": #c7c7c7,
+  "surface": #fafafa,
+  "error": #b00020,
+  "on-primary": #ffffff,
+  "on-secondary": #000000,
+  "on-surface": #000000,
+  "on-error": #ffffff
+);
+@mixin box-shadow($property) {
+  -webkit-box-shadow: $property;
+  -moz-box-shadow: $property;
+  box-shadow: $property;
+}
+@mixin surface($elevation){
+  background-color: map-get($theme-colors, "surface");
+
+  @if $elevation == 1 {
+    @include box-shadow(0px 0px 3px 1px rgba(0, 0, 0, 0.10));
+  }
+  @if $elevation == 2 {
+    @include box-shadow(0px 0px 3px 1px rgba(0, 0, 0, 0.20));
+  }
+}
+
+.surface{
+  @include surface(1);
+
+}
