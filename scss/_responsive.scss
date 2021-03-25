@@ -1,3 +1,48 @@
+@include media-sm{
+  .nav{
+    width: 142vw !important;
+    .menu-nav{
+      height: 142vh !important;
+    }
+  }
+
+  .home{
+    &__name {
+      font-size: 4rem;
+    }
+  }
+  .sec-skills{
+    &-bio-image{
+      width: 80vh;
+    }
+
+  }
+  .skills{
+    width: 100vw !important;
+    margin: 0 auto 0 75px !important;
+    &-title{
+      font-size: 1.5rem !important;
+    }
+    &-set{
+      grid-gap: 1rem !important;
+      &-title{
+        font-size: 1rem !important;
+      }
+      &-skill{
+
+      }
+    }
+  }
+  .contact{
+    h2{
+      font-size: 2.5rem;
+    }
+    &-list{
+      font-size: 1rem;
+    }
+  }
+
+}
 @include media-md{
   .menu-btn {
     visibility: hidden;
@@ -9,9 +54,10 @@
       display: block;
       transform: translateY(0);
       height: 100%;
-      background: transparent;
+      background: $primary-color;
+      opacity: 0.9;
       text-align: right;
-
+      @include transition-ease;
       &-item{
         display: inline;
         padding-right: 1.5rem;
@@ -43,6 +89,35 @@
   }
 }
 @include media-lg{
+  .menu-btn {
+    visibility: hidden;
+  }
+
+  .nav{
+    visibility: visible;
+    .menu-nav{
+      display: block;
+      transform: translateY(0);
+      height: 100%;
+      background: $primary-color;
+      opacity: 0.9;
+      text-align: right;
+
+      &-item{
+        display: inline;
+        padding-right: 1.5rem;
+      }
+
+      &-link{
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .skills{
+    &-set{
+      grid-template-columns: repeat(2,1fr) !important;
+    }
+  }
   .projects{
     &-items{
       grid-template-columns: repeat(3, 1fr);
@@ -53,6 +128,30 @@
   }
 }
 @include media-xl{
+  .menu-btn {
+    visibility: hidden;
+  }
+
+  .nav{
+    visibility: visible;
+    .menu-nav{
+      display: block;
+      transform: translateY(0);
+      height: 100%;
+      background: $primary-color;
+      opacity: 0.9;
+      text-align: right;
+
+      &-item{
+        display: inline;
+        padding-right: 1.5rem;
+      }
+
+      &-link{
+        font-size: 1.5rem;
+      }
+    }
+  }
   .projects-bio-image{
     height: 50vh;
   }

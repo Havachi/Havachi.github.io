@@ -1,5 +1,6 @@
-$primary-color: #0e002b;
-$secondary-color: #69f0ae;
+$primary-color: #4A148C;
+$secondary-color: #1DE9B6;
+$accent-color: #FF5722;
 
 
 *{
@@ -18,13 +19,18 @@ $secondary-color: #69f0ae;
     @return #fff;
   }
 }
+@mixin media-sm {
+  @media screen and (max-width:450px){
+    @content;
+  }
+}
 @mixin media-md {
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) and (max-width:850px){
     @content;
   }
 }
 @mixin media-lg {
-  @media screen and (min-width: 1024px){
+  @media screen and (min-width: 850px) and (max-width:1600px){
     @content;
   }
 }
