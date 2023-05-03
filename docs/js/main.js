@@ -1,24 +1,31 @@
-const menuBtn = document.querySelector('.menu-btn');
-const hamburger = document.querySelector('.menu-btn-burger');
-const nav = document.querySelector('.nav');
-const menunav = document.querySelector('.menu-nav');
-const navitems = document.querySelectorAll('.menu-nav-item');
-let showMenu = false;
+const articles = document.querySelectorAll("article");
+const logo = document.querySelector("#navbar-logo-section > a > i");
+const nb_articles = articles.length;
+let current_article = 0;
 
-menuBtn.addEventListener('click', toggleMenu);
+document.addEventListener("DOMContentLoaded", () => {
+	console.log("NB articles:", articles.length);
 
-function toggleMenu(){
-  if (!showMenu) {
-    hamburger.classList.add('open');
-    nav.classList.add('open');
-    menunav.classList.add('open');
-    navitems.forEach(item => item.classList.add('open'));
-    showMenu = true;
-  }else {
-    hamburger.classList.remove('open');
-    nav.classList.remove('open');
-    menunav.classList.remove('open');
-    navitems.forEach(item => item.classList.remove('open'));
-    showMenu = false;
-  }
+	articles[current_article].classList.add("current");
+	logo.style.color = "rgb(255,255,255)";
+	setInterval(()=>{
+		logo.style.color = "rgb(255,255,255)";
+	}, 10)
+});
+function pageNext(){
+	articles[current_article].classList.remove("current");
+	current_article = (current_article + 1) % nb_articles;
+	articles[current_article].classList.add("current");
+}
+
+function pagePrev(){
+	articles[current_article].classList.remove("current");
+	console.log("current_article: ", current_article)
+	if( current_article == 0)
+		current_article = nb_articles-1;
+	else
+		current_article = (current_article - 1) % nb_articles;
+	console.log("current_article: ", current_article)
+
+	articles[current_article].classList.add("current");
 }

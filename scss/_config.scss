@@ -1,12 +1,26 @@
-$primary-color: #4A148C;
-$secondary-color: #1DE9B6;
-$accent-color: #FF5722;
-
-
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+html{
+  background-color: #000;
+}
+
+@mixin prefix($property, $value, $prefixes){
+  @each $prefix in $prefixes{
+    -#{$prefix}-#{$property}: $value;
+  }
+  #{$property}: $value;
+}
+h1, h2, h3, a, p, span {
+  font-family: $font-family, Arial, sans-serif;
+  font-weight: $font-weight;
+  color: $default-text-color;
+  @include prefix(user-select,none ,webkit khtml moz ms);
+}
+a{
+  text-decoration: none;
 }
 
 @mixin transition-ease {
@@ -19,6 +33,8 @@ $accent-color: #FF5722;
     @return #fff;
   }
 }
+
+
 @mixin media-sm {
   @media screen and (max-width:450px){
     @content;
